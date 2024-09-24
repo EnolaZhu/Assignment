@@ -8,11 +8,15 @@
 import UIKit
 
 class TableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    private var items: [MainPageAssetItem] = []
     private let collectionView: UICollectionView
     private let titleLabel: UILabel
     private let moreButton: UIButton
     private let ReuseIdentifier = "ReuseIdentifier"
+    private let minimumInteritemSpacing = 16.0
+    private let itemSize = CGSize(width: 200, height: 150)
     var images: [UIImage] = []
+
     var moreButtonDidPress: () -> Void = {}
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -71,8 +75,9 @@ class TableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionView
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configure(with images: [UIImage]) {
-        self.images = images
+    func configure(with items: [MainPageAssetItem], title: String) {
+        self.items = items
+        self.titleLabel.text = title
         collectionView.reloadData()
     }
 
@@ -82,20 +87,23 @@ class TableViewCell: UITableViewCell, UICollectionViewDelegate, UICollectionView
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return images.count
+        return items.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ReuseIdentifier, for: indexPath) as! CollectionViewCell
-        cell.imageView.image = images[indexPath.item]
+
+        let item = items[indexPath.item]
+        cell.setItems(item: item)
+
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 150)
+        return itemSize
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        16.0
+        minimumInteritemSpacing
     }
 }

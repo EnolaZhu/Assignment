@@ -19,6 +19,7 @@
 		4C9535862CA2C3120039A5CD /* FetchMainPageAssetsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9535852CA2C3120039A5CD /* FetchMainPageAssetsUseCase.swift */; };
 		4C9535882CA2C3380039A5CD /* FetchMainPageDataRemoteUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9535872CA2C3380039A5CD /* FetchMainPageDataRemoteUseCase.swift */; };
 		4C95358D2CA308450039A5CD /* MainPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95358C2CA308450039A5CD /* MainPageViewModel.swift */; };
+		4C9535902CA30B4F0039A5CD /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C95358F2CA30B4F0039A5CD /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		4C9535852CA2C3120039A5CD /* FetchMainPageAssetsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMainPageAssetsUseCase.swift; sourceTree = "<group>"; };
 		4C9535872CA2C3380039A5CD /* FetchMainPageDataRemoteUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchMainPageDataRemoteUseCase.swift; sourceTree = "<group>"; };
 		4C95358C2CA308450039A5CD /* MainPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewModel.swift; sourceTree = "<group>"; };
+		4C95358F2CA30B4F0039A5CD /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 		4C9535512C9D6E710039A5CD /* Assignment of Glossika */ = {
 			isa = PBXGroup;
 			children = (
+				4C95358E2CA30B340039A5CD /* Extensions */,
 				4C95358B2CA3078E0039A5CD /* ViewModels */,
 				4C9535842CA2C3040039A5CD /* UseCases */,
 				4C9535812CA2C2460039A5CD /* Models */,
@@ -123,6 +126,14 @@
 				4C95358C2CA308450039A5CD /* MainPageViewModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4C95358E2CA30B340039A5CD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				4C95358F2CA30B4F0039A5CD /* UIImage+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -203,6 +214,7 @@
 				4C9535782CA158E60039A5CD /* TableViewCell.swift in Sources */,
 				4C9535832CA2C2830039A5CD /* MainPageData.swift in Sources */,
 				4C95358D2CA308450039A5CD /* MainPageViewModel.swift in Sources */,
+				4C9535902CA30B4F0039A5CD /* UIImage+Extension.swift in Sources */,
 				4C9535532C9D6E710039A5CD /* AppDelegate.swift in Sources */,
 				4C9535552C9D6E710039A5CD /* SceneDelegate.swift in Sources */,
 			);

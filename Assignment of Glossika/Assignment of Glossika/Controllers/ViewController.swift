@@ -9,7 +9,6 @@ import UIKit
 import Combine
 
 class ViewController: UIViewController {
-
     @IBOutlet weak var tableView: UITableView!
 
     private let tableViewIdentifier = "tableViewIdentifier"
@@ -18,11 +17,6 @@ class ViewController: UIViewController {
     private var cancellables = Set<AnyCancellable>()
     private let activityIndicator = UIActivityIndicatorView(style: .large)
 
-    let dataSource: [[UIImage]] = [
-        [UIImage(named: "image1")!, UIImage(named: "image2")!, UIImage(named: "image1")!, UIImage(named: "image1")!, UIImage(named: "image1")!, UIImage(named: "image1")!],
-        [UIImage(named: "image1")!, UIImage(named: "image1")!, UIImage(named: "image1")!],
-        [UIImage(named: "image2")!, UIImage(named: "image2")!, UIImage(named: "image2")!]
-    ]
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -102,7 +96,9 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: tableViewIdentifier, for: indexPath) as! TableViewCell
         cell.selectionStyle = .none
-        cell.configure(with: dataSource[indexPath.section])
+        let items = viewModel.assetSets[indexPath.row].data
+        let title = viewModel.assetSets[indexPath.row].title
+        cell.configure(with: items, title: title)
         return cell
     }
 }

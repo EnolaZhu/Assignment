@@ -18,6 +18,7 @@ class CollectionViewCell: UICollectionViewCell {
     let imageView: UIImageView
     var playerLayer: AVPlayerLayer?
     var player: AVPlayer?
+    private let cornerRadius = 16.0
 
     override init(frame: CGRect) {
         imageView = UIImageView()
@@ -27,7 +28,7 @@ class CollectionViewCell: UICollectionViewCell {
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 16
+        imageView.layer.cornerRadius = cornerRadius
         contentView.addSubview(imageView)
 
         // Set imageView constraints
@@ -43,8 +44,26 @@ class CollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    // Function to configure the cell based on media type
-    func configureCell(with media: MediaType) {
+    func setItems(item: MainPageAssetItem) {
+        if let type = item.type {
+            switch AssetMediaType(rawValue: type) {
+            case .jpg:
+                UIImage.loadImage(from: item.asset) { [weak self] image in
+                    if let image = image {
+                        self?.configureCell(with: .image(image))
+                    }
+                }
+            case .mp4:
+                if let url = URL(string: item.asset) {
+                    configureCell(with: .video(url))
+                }
+            default:
+                break
+            }
+        }
+    }
+
+    private func configureCell(with media: MediaType) {
         switch media {
         case .image(let image):
             imageView.isHidden = false
@@ -56,22 +75,17 @@ class CollectionViewCell: UICollectionViewCell {
         }
     }
 
-    // Setup AVPlayerLayer for video
     private func setupPlayer(url: URL) {
-        // Remove the previous player layer if it exists
         playerLayer?.removeFromSuperlayer()
-
-        // Create new AVPlayer
         player = AVPlayer(url: url)
 
-        // Create and configure AVPlayerLayer
         let playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = contentView.bounds
         playerLayer.videoGravity = .resizeAspectFill
         contentView.layer.addSublayer(playerLayer)
         self.playerLayer = playerLayer
+        applyCornerRadiusToPlayerLayer()
 
-        // Start playing the video
         player?.play()
     }
 
@@ -87,5 +101,13 @@ class CollectionViewCell: UICollectionViewCell {
         // Reset the image view
         imageView.image = nil
         imageView.isHidden = false
+    }
+
+    private func applyCornerRadiusToPlayerLayer() {
+        guard let playerLayer = playerLayer else { return }
+
+        let maskLayer = CAShapeLayer()
+        maskLayer.path = UIBezierPath(roundedRect: contentView.bounds, cornerRadius: CGFloat(cornerRadius)).cgPath
+        playerLayer.mask = maskLayer
     }
 }
