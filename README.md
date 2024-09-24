@@ -19,4 +19,4 @@ This is a personal project that showcases a simple media application built using
 
 ## Preview
 
-<video src='https://github.com/user-attachments/assets/04afaf62-291f-404e-8127-cd0770ca1b46' width=180/>
+<video src='https://github.com/user-attachments/assets/04afaf62-291f-404e-8127-cd0770ca1b46' width=375/>
