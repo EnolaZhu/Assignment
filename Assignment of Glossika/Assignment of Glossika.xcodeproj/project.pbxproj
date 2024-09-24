@@ -13,6 +13,8 @@
 		4C95355A2C9D6E710039A5CD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4C9535592C9D6E710039A5CD /* Base */; };
 		4C95355C2C9D6E720039A5CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4C95355B2C9D6E720039A5CD /* Assets.xcassets */; };
 		4C95355F2C9D6E720039A5CD /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 4C95355E2C9D6E720039A5CD /* Base */; };
+		4C9535782CA158E60039A5CD /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9535772CA158E60039A5CD /* TableViewCell.swift */; };
+		4C95357A2CA159A90039A5CD /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C9535792CA159A90039A5CD /* CollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		4C95355B2C9D6E720039A5CD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4C95355E2C9D6E720039A5CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4C9535602C9D6E720039A5CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4C9535772CA158E60039A5CD /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		4C9535792CA159A90039A5CD /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		4C9535512C9D6E710039A5CD /* Assignment of Glossika */ = {
 			isa = PBXGroup;
 			children = (
+				4C9535762CA158AA0039A5CD /* Views */,
 				4C9535522C9D6E710039A5CD /* AppDelegate.swift */,
 				4C9535542C9D6E710039A5CD /* SceneDelegate.swift */,
 				4C9535562C9D6E710039A5CD /* ViewController.swift */,
@@ -65,6 +70,15 @@
 				4C9535602C9D6E720039A5CD /* Info.plist */,
 			);
 			path = "Assignment of Glossika";
+			sourceTree = "<group>";
+		};
+		4C9535762CA158AA0039A5CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				4C9535772CA158E60039A5CD /* TableViewCell.swift */,
+				4C9535792CA159A90039A5CD /* CollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +152,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C95357A2CA159A90039A5CD /* CollectionViewCell.swift in Sources */,
 				4C9535572C9D6E710039A5CD /* ViewController.swift in Sources */,
+				4C9535782CA158E60039A5CD /* TableViewCell.swift in Sources */,
 				4C9535532C9D6E710039A5CD /* AppDelegate.swift in Sources */,
 				4C9535552C9D6E710039A5CD /* SceneDelegate.swift in Sources */,
 			);
